@@ -10,64 +10,39 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  String text = "My First App";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.yellowAccent,
-        appBar: AppBar(
-          title: Text("First Project"),
-          centerTitle: true,
-          leading: Icon(Icons.ad_units),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: SafeArea(
+            child: Column(
           children: [
-            Text(text),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    text = "Change text";
-                  });
-                },
-                child: Text("Change"))
+            FlutterLogo(
+              size: 256,
+            ),
+            Text(
+              "Title",
+              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            ),
+            Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      "The Flutter logo, in widget form. This widget respects the IconTheme. For guidelines on using the Flutter logo, visit https://flutter.dev/brand. See also: IconTheme, which provides ambient configuration for icons. Icon, for showing icons the Material design icon library. ImageIcon, for showing icons from AssetImages or other ImageProviders. The Flutter logo, in widget form. This widget respects the IconTheme. For guidelines on using the Flutter logo, visit https://flutter.dev/brand. See also: IconTheme, which provides ambient configuration for icons. Icon, for showing icons the Material design icon library. ImageIcon, for showing icons from AssetImages or other ImageProviders.",
+                      style: TextStyle(
+                          fontSize: 20,
+                        color: Colors.grey
+                      ),
+                    ),
+                  ),
+                ),
+            ),
+            ElevatedButton(onPressed: () {}, child: Text("Press Me"))
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                text = "Change text with float";
-              });
-            },
-          child: Icon(Icons.add),
-        ),
+        )),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
-
-/*
-class FirstScreen extends StatelessWidget {
-  FirstScreen({Key? key}) : super(key: key);
-
-  String text = "My First App";
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(text),
-            ElevatedButton(
-                onPressed: () {
-                  text = "Change text";
-                },
-                child: Text("Change"))
-          ],
-        ),
-      ),
-    );
-  }
-}*/
