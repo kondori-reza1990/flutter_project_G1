@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_project/add_card.dart';
 
 void main() => runApp(FirstScreen());
 
@@ -17,9 +18,7 @@ class _FirstScreenState extends State<FirstScreen> {
         body: SafeArea(
             child: Column(
           children: [
-            FlutterLogo(
-              size: 256,
-            ),
+           Image.asset('assets/images/image1.png'),
             Text(
               "Title",
               style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
@@ -38,7 +37,11 @@ class _FirstScreenState extends State<FirstScreen> {
                   ),
                 ),
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Press Me"))
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>AddCard()));
+                },
+                child: Text("Press Me"))
           ],
         )),
       ),
